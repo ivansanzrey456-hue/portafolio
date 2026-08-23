@@ -1,0 +1,44 @@
+.card {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 18px;
+    padding: 20px;
+    transition: transform .3s, border-color .3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #3B82F6;
+}
+
+/* Tipografía adaptativa */
+.card h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin: 0 0 12px;
+}
+
+.card h4 {
+    color: #F8FAFC;
+    font-size: 1rem;
+    margin: 0 0 8px;
+}
+
+.card p {
+    color: #94A3B8;
+    font-size: .9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Ajustes Mobile */
+@media (max-width: 600px) {
+    .card {
+        padding: 16px;
+    }
+    
+    .card:hover {
+        transform: translateY(-2px); /* Efecto más sutil en touch */
+    }
+}

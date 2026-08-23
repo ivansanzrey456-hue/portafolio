@@ -1,0 +1,169 @@
+.solutions {
+    padding: 80px 40px;
+    background: #0B1120;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.solutions-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.solutions-header {
+    max-width: 750px;
+    margin-bottom: 65px;
+}
+
+.section-label {
+    display: inline-block;
+    color: #3B82F6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+/* Tipografía fluida para el título en desktop y mobile */
+.solutions-header h2 {
+    color: #F8FAFC;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.solutions-header p {
+    color: #94A3B8;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Grilla principal en Desktop */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.solution-card {
+    position: relative;
+    padding: 34px;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.solution-card:hover {
+    transform: translateY(-6px);
+    border-color: #3B82F6;
+}
+
+.solution-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .15);
+    color: #3B82F6;
+    font-size: 1.15rem;
+}
+
+.solution-number {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: rgba(148, 163, 184, .35);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.solution-card h3 {
+    color: #F8FAFC;
+    font-size: 1.45rem;
+    margin: 0 0 14px;
+}
+
+.solution-card p {
+    max-width: 620px;
+    color: #94A3B8;
+    font-size: .98rem;
+    line-height: 1.75;
+    margin: 0 0 24px;
+}
+
+.solution-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.solution-tags span {
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .15);
+    color: #CBD5E1;
+    font-size: .8rem;
+}
+
+/* ==========================================
+   REGLAS RESPONSIVAS (Móviles y Tablets)
+   ========================================== */
+
+@media (max-width: 900px) {
+    .solutions {
+        padding: 60px 20px; /* Reduce los márgenes externos */
+    }
+
+    .solutions-header {
+        margin-bottom: 40px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr; /* Cambia a 1 sola columna ocupando todo el ancho */
+        gap: 20px;
+    }
+
+    .solution-card {
+        padding: 24px 20px; /* Aprovecha más el espacio interno de cada tarjeta */
+    }
+
+    .solution-icon {
+        margin-bottom: 20px;
+    }
+
+    .solution-number {
+        top: 24px;
+        right: 20px;
+    }
+
+    .solution-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 450px) {
+    .solutions {
+        padding: 50px 16px;
+    }
+
+    .solutions-header p {
+        font-size: 0.95rem;
+    }
+
+    .solution-card h3 {
+        font-size: 1.25rem;
+    }
+}

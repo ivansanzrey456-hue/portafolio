@@ -1,0 +1,359 @@
+.projects {
+    padding: 120px 40px;
+    background: #0F172A;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.projects-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.projects-header {
+    max-width: 750px;
+    margin-bottom: 65px;
+}
+
+.projects-header h2 {
+    color: #F8FAFC;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.projects-header p {
+    color: #CBD5E1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Grid de proyectos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+/* Manejo del wrapper animado para proyectos destacados */
+.project-featured-wrapper {
+    grid-column: span 2;
+}
+
+.project-card {
+    overflow: hidden;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 20px;
+    transition: transform .3s ease, border-color .3s ease;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #3B82F6;
+}
+
+/* Proyecto destacado (2 columnas en escritorio) */
+.project-featured {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #0B1120;
+}
+
+.project-featured .project-image {
+    height: 100%;
+    min-height: 320px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #0B1120;
+    display: block;
+    transition: transform .5s ease;
+
+      /*Evitar que descarguen la imagen*/
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.04);
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: rgba(11, 17, 32, .72);
+    color: #F8FAFC;
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-content {
+    padding: 32px;
+}
+
+.project-category {
+    display: block;
+    margin-bottom: 12px;
+    color: #3B82F6;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.project-content h3 {
+    color: #F8FAFC;
+    font-size: 1.5rem;
+    margin: 0 0 16px;
+}
+
+.project-content p {
+    color: #CBD5E1;
+    font-size: .98rem;
+    line-height: 1.75;
+    margin: 0 0 24px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .15);
+    color: #CBD5E1;
+    font-size: .8rem;
+}
+
+/* Modal */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: rgba(2, 6, 23, .85);
+    backdrop-filter: blur(4px);
+    animation: fadeInModal 0.25s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.project-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 24px;
+    background: #0F172A;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .45);
+    box-sizing: border-box;
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .04);
+    color: #CBD5E1;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.project-modal-close:hover {
+    background: #2563EB;
+    color: white;
+}
+
+.project-modal-content h2 {
+    max-width: 850px;
+    margin: 12px 0 20px;
+    color: #F8FAFC;
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+
+.project-modal-intro {
+    max-width: 850px;
+    margin-bottom: 35px;
+    color: #CBD5E1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Gallery */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    background: #0B1120;
+    border-radius: 14px;
+    display: block;
+}
+
+.project-modal-section {
+    margin-top: 35px;
+}
+
+.project-modal-section h3 {
+    margin-bottom: 12px;
+    color: #F8FAFC;
+    font-size: 1.25rem;
+}
+
+.project-modal-section p {
+    max-width: 850px;
+    color: #CBD5E1;
+    line-height: 1.8;
+}
+
+.project-modal-section ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.project-modal-section li {
+    color: #CBD5E1;
+}
+
+.project-modal-section li::before {
+    content: "✓";
+    margin-right: 10px;
+    color: #3B82F6;
+}
+
+/* ÁREA RESPONSIVA MEJORADA */
+@media (max-width: 900px) {
+    .projects {
+        padding: 60px 16px;
+    }
+
+    .projects-header {
+        margin-bottom: 40px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-featured-wrapper {
+        grid-column: span 1;
+    }
+
+    .project-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .project-featured .project-image {
+        height: 240px;
+        min-height: auto;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    /* Ajustes overlay en táctil */
+    .project-overlay {
+        opacity: 0.9;
+        background: rgba(11, 17, 32, .5);
+    }
+}
+
+@media (max-width: 800px) {
+    .project-modal {
+        padding: 16px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .project-modal-content {
+        width: 100%;
+        margin-top: 10px;
+        padding: 30px 20px;
+        border-radius: 18px;
+    }
+
+    .project-modal-content h2 {
+        padding-right: 40px;
+        font-size: 1.8rem;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .project-gallery img {
+        height: 220px;
+    }
+
+    .project-modal-section ul {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}

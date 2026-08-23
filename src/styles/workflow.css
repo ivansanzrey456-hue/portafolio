@@ -1,0 +1,102 @@
+.workflow {
+    padding: 60px 20px;
+    background: #0B1120;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.workflow-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.workflow-header {
+    max-width: 650px;
+    margin-bottom: 48px;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #3B82F6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Tipografía fluida */
+.workflow-header h2 {
+    color: #F8FAFC;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.workflow-header p {
+    color: #CBD5E1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Grilla fluida adaptable */
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.workflow-grid .card {
+    position: relative;
+    min-height: 260px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.workflow-grid .card:hover {
+    transform: translateY(-4px);
+    border-color: #3B82F6;
+}
+
+.workflow-number {
+    display: block;
+    color: #3B82F6;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+}
+
+.workflow-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.workflow-grid .card h3 {
+    color: #F8FAFC;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.workflow-grid .card p {
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Puntos de interrupción responsivos */
+@media (max-width: 768px) {
+    .workflow {
+        padding: 40px 16px;
+    }
+
+    .workflow-header {
+        margin-bottom: 32px;
+    }
+
+    .workflow-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

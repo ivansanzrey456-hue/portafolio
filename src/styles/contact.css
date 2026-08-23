@@ -1,0 +1,150 @@
+.contact {
+    padding: 80px 40px;
+    background: #0B1120;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    max-width: 750px;
+    margin-bottom: 65px;
+}
+
+/* Tipografía adaptativa */
+.contact-header h2 {
+    color: #F8FAFC;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.contact-header p {
+    color: #CBD5E1; /* Un poco más claro para mejor contraste visual */
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Grid predeterminado (Desktop) */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    text-decoration: none;
+    transition: transform 0.3s, border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0; /* Evita desbordamiento si el texto es largo */
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: #3B82F6;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    color: #3B82F6;
+    font-size: 1.2rem;
+}
+
+/* Estado de éxito al copiar correo */
+.contact-icon.success {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #34D399; /* Verde esmeralda de mayor contraste para WCAG / SonarQube */
+    transform: scale(1.05);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Contenedor de texto para asegurar salto de línea si el correo es largo */
+.contact-card-info {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.contact-card span {
+    display: block;
+    margin-bottom: 5px;
+    color: #CBD5E1; /* Subido ligeramente de #94A3B8 para resolver contraste */
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.contact-card strong {
+    color: #F8FAFC;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: block;
+    /* Eliminado word-break: break-word (obsoleto). overflow-wrap es la propiedad moderna */
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   REGLAS RESPONSIVAS (Móviles y Tablets)
+   ========================================== */
+
+@media (max-width: 850px) {
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* Pasa a 1 columna */
+        gap: 16px;
+    }
+
+    .contact-card {
+        padding: 20px 18px;
+        gap: 16px;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 450px) {
+    .contact {
+        padding: 50px 16px;
+    }
+
+    .contact-header p {
+        font-size: 0.95rem;
+    }
+
+    .contact-card strong {
+        font-size: 0.88rem;
+    }
+}

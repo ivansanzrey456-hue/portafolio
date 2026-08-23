@@ -1,0 +1,160 @@
+.technologies {
+    padding: 100px 40px;
+    background: #0F172A;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.technologies-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.technologies-header {
+    max-width: 750px;
+    margin-bottom: 65px;
+}
+
+/* Tipografía adaptativa para títulos */
+.technologies-header h2 {
+    color: #F8FAFC;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.technologies-header p {
+    color: #94A3B8;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Grilla principal (Desktop) */
+.technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.technology-card {
+    position: relative;
+    padding: 34px;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.technology-card:hover {
+    transform: translateY(-6px);
+    border-color: #3B82F6;
+}
+
+.technology-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .15);
+    color: #3B82F6;
+    font-size: 1.15rem;
+}
+
+.technology-number {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: rgba(148, 163, 184, .35);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.technology-card h3 {
+    color: #F8FAFC;
+    font-size: 1.45rem;
+    margin: 0 0 14px;
+}
+
+.technology-card p {
+    max-width: 620px;
+    color: #94A3B8;
+    font-size: .98rem;
+    line-height: 1.75;
+    margin: 0 0 24px;
+}
+
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.technology-tags span {
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .15);
+    color: #CBD5E1;
+    font-size: .8rem;
+}
+
+/* ==========================================
+   ÁREA RESPONSIVA (Tablet y Mobile)
+   ========================================== */
+
+@media (max-width: 900px) {
+    .technologies {
+        padding: 60px 20px; /* Reduce paddings exteriores */
+    }
+
+    .technologies-header {
+        margin-bottom: 40px;
+    }
+
+    .technologies-grid {
+        grid-template-columns: 1fr; /* Cambia a 1 sola columna */
+        gap: 20px;
+    }
+
+    .technology-card {
+        padding: 24px 20px; /* Reduce padding interior de la tarjeta */
+    }
+
+    .technology-icon {
+        margin-bottom: 20px;
+    }
+
+    .technology-number {
+        top: 24px;
+        right: 20px;
+    }
+
+    .technology-card:hover {
+        transform: translateY(-2px); /* Transición suave para dispositivos táctiles */
+    }
+}
+
+@media (max-width: 450px) {
+    .technologies {
+        padding: 50px 16px;
+    }
+
+    .technologies-header p {
+        font-size: .95rem;
+    }
+
+    .technology-card h3 {
+        font-size: 1.25rem;
+    }
+}

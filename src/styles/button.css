@@ -1,0 +1,49 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    padding: 14px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .3s, transform .3s, border-color .3s;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.btn.primary {
+    background: #2563EB;
+    color: white;
+    border: none;
+}
+
+.btn.primary:hover {
+    background: #1D4ED8;
+    transform: translateY(-3px);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, .15);
+}
+
+.btn.secondary:hover {
+    border-color: #3B82F6;
+    background: rgba(59, 130, 246, .08);
+}
+
+/* Ajustes Mobile */
+@media (max-width: 480px) {
+    .btn {
+        width: 100%; /* Botones de ancho completo en móviles si están en un contenedor flex/grid */
+        padding: 12px 20px;
+        font-size: .95rem;
+    }
+
+    .btn.primary:hover {
+        transform: none; /* Desactiva el salto vertical al tocar la pantalla */
+    }
+}
