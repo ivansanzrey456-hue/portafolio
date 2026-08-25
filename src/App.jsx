@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 
 import "./styles/global.css"; // Revisa que esta ruta coincida con la ubicación real de tu global.css
 import { useEffect } from 'react';
+import React from 'react';
 
 function App() {
 

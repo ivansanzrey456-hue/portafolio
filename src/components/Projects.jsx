@@ -3,7 +3,7 @@ import "../styles/projects.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import projects from "../data/projects";
-
+import React from 'react';
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(null);
 

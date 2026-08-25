@@ -1,3 +1,4 @@
+import React from 'react';
 function ProjectModal({ project, onClose }) {
 
     if (!project) {

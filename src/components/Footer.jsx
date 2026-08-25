@@ -4,6 +4,7 @@ import {
     FaEnvelope,
     FaWhatsapp
 } from "react-icons/fa";
+import React from 'react';
 
 import "../styles/footer.css";
 

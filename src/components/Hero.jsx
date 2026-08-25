@@ -1,19 +1,17 @@
 import Button from "./Button";
 import Card from "./Card";
+import React from 'react';
+import { FaGlobe, FaFingerprint, FaMicrochip, FaPlayCircle, FaArrowRight } from "react-icons/fa";
 
 import imgTemp from "../assets/images/imgTemp.png";
-import { FaArrowRight } from "react-icons/fa";
 import "../styles/hero.css";
 
 function Hero() {
     return (
         <section className="hero" id="hero">
-            
             <div className="hero-container">
-
                 <div className="hero-content">
 
-                    {/* Saludo y Badge de estado */}
                     <span className="hero-greeting animate-on-scroll stagger-1">
                         Hola, soy
                     </span>
@@ -38,7 +36,6 @@ function Hero() {
                         escalables y fáciles de utilizar.
                     </p>
 
-                    {/* Botones */}
                     <div className="hero-buttons animate-on-scroll stagger-4">
                         <Button
                             href="#projects"
@@ -55,11 +52,10 @@ function Hero() {
                         </Button>
                     </div>
                     
-                    {/* Tarjetas de Highlights */}
                     <div className="hero-highlights">
                         <div className="animate-on-scroll stagger-4">
                             <Card>
-                                <h3>🏊</h3>
+                                <FaGlobe className="card-icon" />
                                 <h4>Sistema Web</h4>
                                 <p>React • PHP • MySQL</p>
                             </Card>
@@ -67,7 +63,7 @@ function Hero() {
 
                         <div className="animate-on-scroll stagger-5">
                             <Card>
-                                <h3>🔑</h3>
+                                <FaFingerprint className="card-icon" />
                                 <h4>API Biométrica</h4>
                                 <p>C# • Flask • SQL</p>
                             </Card>
@@ -75,7 +71,7 @@ function Hero() {
 
                         <div className="animate-on-scroll stagger-5">
                             <Card>
-                                <h3>🏠</h3>
+                                <FaMicrochip className="card-icon" />
                                 <h4>INNOVATECNM</h4>
                                 <p>IoT • Automatización</p>
                             </Card>
@@ -83,7 +79,7 @@ function Hero() {
 
                         <div className="animate-on-scroll stagger-6">
                             <Card>
-                                <h3>🎬</h3>
+                                <FaPlayCircle className="card-icon" />
                                 <h4>Visual Player</h4>
                                 <p>Python • PyQt6 • VLC</p>
                             </Card>
@@ -92,7 +88,6 @@ function Hero() {
 
                 </div>
 
-                {/* Columna de la Imagen con protección anti-descarga */}
                 <div className="hero-image animate-on-scroll stagger-3">
                     <img
                         src={imgTemp}
@@ -102,9 +97,7 @@ function Hero() {
                         onDragStart={(e) => e.preventDefault()}
                     />
                 </div>
-
             </div>
-
         </section>
     );
 }

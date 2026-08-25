@@ -1,6 +1,6 @@
 import Card from "./Card";
 import "../styles/workflow.css";
-
+import React from 'react';
 function Workflow() {
     return (
         <section className="workflow" id="workflow">

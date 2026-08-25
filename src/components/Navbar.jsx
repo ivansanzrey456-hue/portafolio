@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import React from 'react';
 import {
     HiOutlineDocumentArrowDown,
     HiOutlineBars3,
