@@ -43,13 +43,6 @@ function Hero() {
                         >
                             Ver proyectos
                         </Button>
-
-                        <Button
-                            href="/cv.pdf"
-                            variant="secondary"
-                        >
-                            Descargar CV
-                        </Button>
                     </div>
                     
                     <div className="hero-highlights">
