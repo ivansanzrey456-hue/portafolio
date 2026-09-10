@@ -6,6 +6,7 @@ function ProjectCard({ project, onOpen }) {
         <article
             className={`project-card ${
                 project.featured ? "project-featured" : ""
+                
             }`}
         >
 
@@ -21,6 +22,7 @@ function ProjectCard({ project, onOpen }) {
                 <button
                     className="project-overlay"
                     onClick={() => onOpen(project)}
+                    
                 >
                     VER PROYECTO
                 </button>

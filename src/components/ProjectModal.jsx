@@ -120,24 +120,28 @@ function ProjectModal({ project, onClose }) {
                 </div>
 
 
-                <div className="project-modal-section">
-
-                    <h3>
-                        Tecnologías
-                    </h3>
-
-                    <div className="project-tags">
-
-                        {project.technologies.map((technology) => (
-
-                            <span key={technology}>
-                                {technology}
-                            </span>
-
-                        ))}
-
+                <div className="project-modal-footer">
+                    <div className="project-modal-section">
+                        <h3>Tecnologías</h3>
+                        <div className="project-tags">
+                            {project.technologies.map((technology) => (
+                                <span key={technology}>
+                                    {technology}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
+                    {project.demoUrl && (
+                        <a 
+                            href={project.demoUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn-demo"
+                        >
+                            Ver Demo
+                        </a>
+                    )}
                 </div>
 
             </div>

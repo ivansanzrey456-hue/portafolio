@@ -66,6 +66,8 @@ const projects = [
         modalDescription:
             "Sistema web desarrollado para centralizar la gestión de socios, membresías, visitas y accesos, facilitando el control administrativo y el seguimiento de las asistencias.",
 
+        demoUrl: "https://ivansanzrey456-hue.github.io/dashboard/",
+
         problem:
             "La gestión de entradas, salidas y visitas de los socios se realizaba de manera poco eficiente, dificultando el seguimiento de las asistencias semanales y mensuales, así como el control de las membresías y la generación de reportes.",
 
