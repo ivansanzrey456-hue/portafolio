@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Card from "./Card";
 import React from 'react';
+import StrokeText from "./StrokeText";
 import { FaGlobe, FaFingerprint, FaMicrochip, FaPlayCircle, FaArrowRight } from "react-icons/fa";
 
 import imgTemp from "../assets/images/imgTemp.png";
@@ -16,9 +17,20 @@ function Hero() {
                         Hola, soy
                     </span>
                     
-                    <h1 className="animate-on-scroll stagger-1">
-                        Ivan Sanchez Reyes
-                    </h1>
+                    <div className="animate-on-scroll stagger-1">
+                        <StrokeText
+                            text="Ivan Sanchez Reyes"
+                            strokeColor="#60a5fa"     /* Color del borde que dibuja */
+                            fillColor="#ffffff"       /* Color del relleno del texto */
+                            strokeWidth={2}           /* Grosor del trazo */
+                            fontSize={64}             /* Tamaño de fuente adecuado para títulos */
+                            fontWeight={700}
+                            letterSpacing={-1}
+                            drawDuration={1.8}
+                            fillDelay={0.3}
+                            trigger="scroll"          /* Se anima al hacer scroll */
+                        />
+                        </div>
                     
                     <h2 className="animate-on-scroll stagger-2">
                         Ingeniero en Informática | Full Stack Developer

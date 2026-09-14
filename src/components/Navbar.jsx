@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import React from 'react';
+import DottedOffsetButton from './DottedOffsetButton';
 import {
     HiOutlineDocumentArrowDown,
     HiOutlineBars3,
@@ -11,13 +12,13 @@ import "../styles/navbar.css";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    // Estado para rastrear qué enlace está activo
+    const [activeSection, setActiveSection] = useState("experience");
 
-    const closeMenu = () => {
+    const handleNavClick = (sectionId) => {
+        setActiveSection(sectionId);
         setMenuOpen(false);
     };
-
-    // Apunta dinámicamente a la carpeta public
-    const cvPath = `${import.meta.env.BASE_URL}cv.pdf`;
 
     return (
         <header className="navbar">
@@ -26,7 +27,7 @@ function Navbar() {
                 <a
                     href="#hero"
                     className="navbar-logo"
-                    onClick={closeMenu}
+                    onClick={() => setMenuOpen(false)}
                 >
                     <div className="logo-symbol">&lt;ISR/&gt;</div>
                     <div className="logo-text">
@@ -35,21 +36,33 @@ function Navbar() {
                     </div>
                 </a>
 
-                <nav
-                    className={`navbar-links ${
-                        menuOpen ? "navbar-links-open" : ""
-                    }`}
-                >
-                    <a href="#experience" onClick={closeMenu}>
+                <nav className={`navbar-links ${menuOpen ? "navbar-links-open" : ""}`}>
+                    <a 
+                        href="#experience" 
+                        className={`nav-item ${activeSection === 'experience' ? 'active' : ''}`}
+                        onClick={() => handleNavClick('experience')}
+                    >
                         Trayectoria
                     </a>
-                    <a href="#solutions" onClick={closeMenu}>
+                    <a 
+                        href="#solutions" 
+                        className={`nav-item ${activeSection === 'solutions' ? 'active' : ''}`}
+                        onClick={() => handleNavClick('solutions')}
+                    >
                         Soluciones
                     </a>
-                    <a href="#technologies" onClick={closeMenu}>
+                    <a 
+                        href="#technologies" 
+                        className={`nav-item ${activeSection === 'technologies' ? 'active' : ''}`}
+                        onClick={() => handleNavClick('technologies')}
+                    >
                         Tecnologías
                     </a>
-                    <a href="#contact" onClick={closeMenu}>
+                    <a 
+                        href="#contact" 
+                        className={`nav-item ${activeSection === 'contact' ? 'active' : ''}`}
+                        onClick={() => handleNavClick('contact')}
+                    >
                         Contacto
                     </a>
                     <a
@@ -57,46 +70,59 @@ function Navbar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="navbar-mobile-link"
-                        onClick={closeMenu}
+                        onClick={() => setMenuOpen(false)}
                     >
                         <FaGithub /> GitHub
                     </a>
                     
-                    {/* CV Versión Móvil */}
                     <a
                         href="/CV-Sanchez_Reyes_Ivan.pdf"
                         download="CV-Sanchez_Reyes_Ivan.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="navbar-mobile-cv"
-                        onClick={closeMenu}
+                        onClick={() => setMenuOpen(false)}
                     >
                         <HiOutlineDocumentArrowDown /> Descargar CV
                     </a>
                 </nav>
 
                 <div className="navbar-actions">
-                    <a
-                        href="https://github.com/ivansanzrey456-hue"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="icon-button navbar-desktop-only"
-                        aria-label="GitHub"
-                    >
-                        <FaGithub />
-                    </a>
+                    <DottedOffsetButton
+                        label="GitHub"
+                        link="https://github.com/ivansanzrey456-hue"
+                        newTab={true}
+                        addIcon={true}
+                        icon={{ 
+                            element: <FaGithub />, // Pasar el icono de react-icons aquí
+                            size: 18 
+                        }}
+                        colors={{
+                            fill: "#181717",
+                            hoverFill: "#000000",
+                            textColor: "#ffffff",
+                            hoverTextColor: "#ffffff"
+                        }}
+                        border={{
+                            borderColor: "#333333",
+                            borderStyle: "solid",
+                            borderWidth: 2
+                        }}
+                        shadow={{
+                            color: "#3a058a" // Color morado/gris característico de GitHub
+                        }}
+                    />
 
-                    {/* CV Versión Escritorio (CORREGIDO) */}
-                    <a
-                        href="/CV-Sanchez_Reyes_Ivan.pdf"
-                        download="CV-Sanchez_Reyes_Ivan.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cv-button navbar-desktop-only"
-                    >
-                        <HiOutlineDocumentArrowDown />
-                        <span>Descargar CV</span>
-                    </a>
+                   
+                    <div className="navbar-desktop-only">
+                        <DottedOffsetButton
+                            label="Descargar CV"
+                            link="/CV-Sanchez_Reyes_Ivan.pdf"
+                            newTab={true}
+                            addIcon={true}
+                            icon={{ symbol: "↓", size: 16 }}
+                        />
+                    </div>
                 </div>
 
                 <button

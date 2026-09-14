@@ -317,3 +317,44 @@
         height: 40px;
     }
 }
+
+
+/*animaciones*/
+/* Estilo base para cada enlace del navbar */
+.nav-item {
+  position: relative;
+  padding: 8px 16px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  border-radius: 20px;
+}
+
+/* Efecto hover */
+.nav-item:hover {
+  color: #ffffff;
+}
+
+/* Indicador animado inferior o fondo activo */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #2563eb;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Estado activo: despliega la barra horizontal suavemente */
+.nav-item.active {
+  color: #ffffff;
+}
+
+.nav-item.active::after {
+  width: 80%;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import DottedOffsetButton from './DottedOffsetButton';
 function ProjectModal({ project, onClose }) {
 
     if (!project) {
@@ -133,14 +134,27 @@ function ProjectModal({ project, onClose }) {
                     </div>
 
                     {project.demoUrl && (
-                        <a 
-                            href={project.demoUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="btn-demo"
-                        >
-                            Ver Demo
-                        </a>
+                        <DottedOffsetButton
+                            label="Ver Demo"
+                            link={project.demoUrl}
+                            newTab={true}
+                            addIcon={true}
+                            icon={{ symbol: "↗", size: 16 }}
+                            colors={{
+                                fill: "#013dc0",
+                                hoverFill: "#000e00",
+                                textColor: "#ffffff",
+                                hoverTextColor: "#ffffff"
+                            }}
+                            border={{
+                                borderColor: "#041330",
+                                borderStyle: "solid",
+                                borderWidth: 2
+                            }}
+                            shadow={{
+                                color: "#12c273"
+                            }}
+                        />
                     )}
                 </div>
 
