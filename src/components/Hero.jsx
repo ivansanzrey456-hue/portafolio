@@ -2,6 +2,8 @@ import Button from "./Button";
 import Card from "./Card";
 import React from 'react';
 import StrokeText from "./StrokeText";
+import SplitFlapText from "./SplitFlapText";
+import SpecularButton from "./SpecularButton";
 import { FaGlobe, FaFingerprint, FaMicrochip, FaPlayCircle, FaArrowRight } from "react-icons/fa";
 
 import imgTemp from "../assets/images/imgTemp.png";
@@ -23,7 +25,7 @@ function Hero() {
                             strokeColor="#60a5fa"     /* Color del borde que dibuja */
                             fillColor="#ffffff"       /* Color del relleno del texto */
                             strokeWidth={2}           /* Grosor del trazo */
-                            fontSize={64}             /* Tamaño de fuente adecuado para títulos */
+                            fontSize={64} /* Deja un base fijo aquí */          /* Tamaño de fuente adecuado para títulos */
                             fontWeight={700}
                             letterSpacing={-1}
                             drawDuration={1.8}
@@ -32,9 +34,23 @@ function Hero() {
                         />
                         </div>
                     
-                    <h2 className="animate-on-scroll stagger-2">
-                        Ingeniero en Informática | Full Stack Developer
-                    </h2>
+                    <div className="animate-on-scroll stagger-2">
+                        <SplitFlapText
+                            words={[" Ingeniero en Informática"," Full Stack Developer",]}
+                            flipDuration={0.12}
+                            stagger={0.06}
+                            cycleDelay={2400}
+                            charset="alphanumeric"
+                            flipsPerChar={8}
+                            tileColor="#111827"
+                            textColor="#f8fafc"
+                            tileRadius={8}
+                            gap={2}
+                            className="split-flap-hero"
+                            loop
+                            padTo={0}
+                            />
+                    </div>
 
                     <div className="status-badge animate-on-scroll stagger-2">
                         <span className="status-dot"></span>
@@ -49,12 +65,33 @@ function Hero() {
                     </p>
 
                     <div className="hero-buttons animate-on-scroll stagger-4">
-                        <Button
-                            href="#projects"
-                            icon={<FaArrowRight />}
-                        >
-                            Ver proyectos
-                        </Button>
+                        
+<SpecularButton
+  size="lg"
+  radius={18}
+  tint="#ffffff"
+  tintOpacity={0}
+  blur={0}
+  textColor="#f5f5f5"
+  lineColor="#ffffff"
+  baseColor="#112eeb"
+  intensity={1}
+  shineSize={10}
+  shineFade={40}
+  thickness={1}
+  speed={0.35}
+  followMouse
+  proximity={250}
+  autoAnimate={false}
+  onClick={() => {
+    const section = document.querySelector("#projects");
+    section?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  <span style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+    Ver proyectos <FaArrowRight />
+  </span>
+</SpecularButton>
                     </div>
                     
                     <div className="hero-highlights">

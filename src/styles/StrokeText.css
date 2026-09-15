@@ -1,6 +1,7 @@
 .stroke-text {
   display: block;
   width: 100%;
+  text-align: left;
   line-height: 0;
 }
 
@@ -12,9 +13,19 @@
   display: block;
   width: 100%;
   height: var(--stroke-text-height, 160px);
+  margin-left: 0 !important; /* Asegura que el SVG empiece a la izquierda */
 }
 
 .stroke-text__stroke,
 .stroke-text__fill {
   user-select: none;
+}
+
+
+/*Responsive*/
+/* Escala el SVG dinámicamente sin importar redimensiones de pantalla */
+@media (max-width: 768px) {
+  .stroke-text__svg {
+    height: 52px !important;
+  }
 }
