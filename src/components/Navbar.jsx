@@ -100,43 +100,49 @@ function Navbar() {
                 </nav>
 
                 <div className="navbar-actions">
-  
-  {/* Ícono de LinkedIn */}
-  <a
-    href="https://www.linkedin.com/in/ivansanchezreyes/"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="LinkedIn"
-    aria-label="Perfil de LinkedIn"
-    className="navbar-icon-btn text-[#0a66c2]"
-  >
-    <FaLinkedin size={20} />
-  </a>
+                
+                    {/* Ícono de LinkedIn */}
+                    <a
+                        href="https://www.linkedin.com/in/ivansanchezreyes/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="LinkedIn"
+                        aria-label="Perfil de LinkedIn"
+                        className="navbar-icon-btn text-[#0a66c2]"
+                    >
+                        <FaLinkedin size={20} />
+                    </a>
 
-  {/* Ícono de GitHub */}
-  <a
-    href="https://github.com/ivansanzrey456-hue"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="GitHub"
-    aria-label="Perfil de GitHub"
-    className="navbar-icon-btn"
-  >
-    <FaGithub size={20} />
-  </a>
+                    {/* Ícono de GitHub */}
+                    <a
+                        href="https://github.com/ivansanzrey456-hue"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="GitHub"
+                        aria-label="Perfil de GitHub"
+                        className="navbar-icon-btn"
+                    >
+                        <FaGithub size={20} />
+                    </a>
 
-  {/* Botón Principal: Descargar CV */}
-  <div className="navbar-desktop-only">
-    <DottedOffsetButton
-      label="Descargar CV"
-      link="/CV-Sanchez_Reyes_Ivan.pdf"
-      newTab={true}
-      addIcon={true}
-      icon={{ symbol: "↓", size: 16 }}
-    />
-  </div>
+                    {/* Botón Principal: Descargar CV */}
+                    <div className="navbar-desktop-only">
+                        <DottedOffsetButton
+                        label="Descargar CV"
+                        link="/CV-Sanchez_Reyes_Ivan.pdf"
+                        newTab={true}
+                        addIcon={true}
+                        colors={{
+                            fill: "#000559d6",
+                            hoverFill: "#000000",
+                            textColor: "#ffffff",
+                            hoverTextColor: "#ffffff"
+                        }}
+                        icon={{ symbol: "↓", size: 16 }}
+                        />
+                    </div>
 
-</div>
+                </div>
 
                 <button
                     type="button"
