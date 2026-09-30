@@ -1,6 +1,6 @@
 // src/components/NotFound.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { FiHome, FiAlertCircle, FiSun, FiMoon } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
@@ -9,7 +9,6 @@ import '../styles/NotFound.css';
 
 function NotFound() {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -18,7 +17,7 @@ function NotFound() {
   return (
     <div className={`not-found-wrapper ${isDarkMode ? 'theme-dark' : 'theme-light'}`}>
       
-      {/* Botón para cambiar de tema */}
+      {/* Botón para cambiar el tema (Claro/Oscuro) */}
       <button 
         className="theme-toggle-btn" 
         onClick={toggleTheme}
@@ -30,7 +29,7 @@ function NotFound() {
 
       <main className="not-found-container">
         
-        {/* Lado izquierdo: Animación */}
+        {/* Lado izquierdo: Animación Lottie */}
         <div className="not-found-left">
           <div className="animation-card">
             <DotLottieReact
@@ -41,7 +40,7 @@ function NotFound() {
           </div>
         </div>
 
-        {/* Lado derecho: Texto y Botones */}
+        {/* Lado derecho: Texto informativo y Botones */}
         <div className="not-found-right">
           
           <h1 className="not-found-code">404</h1>
@@ -60,35 +59,58 @@ function NotFound() {
 
           <div className="not-found-actions">
 
-            {/* Botón "Volver al Inicio" con color dinámico de alta visibilidad */}
+            {/* El componente Link asegura la redirección a la raíz (/) */}
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <DottedOffsetButton
+                label="Volver al Inicio"
+                addIcon={true}
+                icon={{ 
+                  element: <FiHome />, 
+                  size: 18 
+                }}
+                colors={{
+                  fill: isDarkMode ? "#ffffff" : "#0f172a",
+                  hoverFill: isDarkMode ? "#e2e8f0" : "#000000",
+                  textColor: isDarkMode ? "#0f172a" : "#ffffff",
+                  hoverTextColor: isDarkMode ? "#0f172a" : "#ffffff"
+                }}
+                border={{
+                  borderColor: isDarkMode ? "#ffffff" : "#0f172a",
+                  borderStyle: "solid",
+                  borderWidth: 2
+                }}
+                shadow={{
+                  color: isDarkMode ? "#64748b" : "#94a3b8"
+                }}
+              />
+            </Link>
+
+            {/* Botón de enlace externo a GitHub */}
             <DottedOffsetButton
-  label="Volver al Inicio"
-  onClick={() => navigate('/')}
-  addIcon={true}
-  icon={{ 
-    element: <FiHome />, 
-    size: 18 
-  }}
-  colors={{
-    // Fondo: Blanco en modo oscuro (#ffffff), Negro/Gris muy oscuro en modo claro (#0f172a)
-    fill: isDarkMode ? "#ffffff" : "#0f172a",
-    // Hover: Gris claro en modo oscuro, Negro puro en modo claro
-    hoverFill: isDarkMode ? "#e2e8f0" : "#000000",
-    // Texto: Negro en modo oscuro, Blanco en modo claro
-    textColor: isDarkMode ? "#0f172a" : "#ffffff",
-    hoverTextColor: isDarkMode ? "#0f172a" : "#ffffff"
-  }}
-  border={{
-    // Borde a juego con el tema
-    borderColor: isDarkMode ? "#ffffff" : "#0f172a",
-    borderStyle: "solid",
-    borderWidth: 2
-  }}
-  shadow={{
-    // Sombra proyectada offset
-    color: isDarkMode ? "#64748b" : "#94a3b8"
-  }}
-/>
+              label="GitHub"
+              link="https://github.com/ivansanzrey456-hue"
+              newTab={true}
+              addIcon={true}
+              icon={{ 
+                element: <FaGithub />, 
+                size: 18 
+              }}
+              colors={{
+                fill: isDarkMode ? "#1e293b" : "#f1f5f9",
+                hoverFill: isDarkMode ? "#334155" : "#e2e8f0",
+                textColor: isDarkMode ? "#f8fafc" : "#0f172a",
+                hoverTextColor: isDarkMode ? "#ffffff" : "#0f172a"
+              }}
+              border={{
+                borderColor: isDarkMode ? "#475569" : "#cbd5e1",
+                borderStyle: "solid",
+                borderWidth: 2
+              }}
+              shadow={{
+                color: isDarkMode ? "#0f172a" : "#94a3b8"
+              }}
+            />
+
           </div>
 
         </div>
