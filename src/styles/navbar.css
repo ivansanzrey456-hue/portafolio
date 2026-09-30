@@ -9,7 +9,7 @@
 
     z-index: 1000;
 
-    background: rgba(11,17,32,.82);
+    background: linear-gradient(#0e0238a0, #012d44a0);
 
     backdrop-filter: blur(16px);
 

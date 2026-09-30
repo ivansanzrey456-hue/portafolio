@@ -1,0 +1,128 @@
+/* src/styles/ProjectCarousel.css */
+
+.carousel-root {
+  width: 100%;
+  margin: 2rem 0; /* Espaciado con los textos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* El contenedor que fuerza el tamaño uniforme */
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  /* Define una altura máxima agradable para escritorio.
+     Si tus capturas son muy horizontales, puedes reducir esto a 400px o 450px */
+  height: 500px; 
+  border-radius: 12px;
+  overflow: hidden; /* Corta lo que sobresalga */
+  background-color: #0b1120; /* Fondo oscuro para el 'letterboxing' si la imagen no llena */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Fuerza a todas las imágenes a ocupar el 100% del viewport */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  /* ESTA ES LA CLAVE: ajusta la imagen para que quepa sin estirarse, 
+     mostrando barras negras (fondo oscuro) si es necesario (como un video) */
+  object-fit: contain; 
+}
+
+/* Botones de navegación sobrepuestos */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(17, 24, 39, 0.7); /* Fondo oscuro semi-transparente */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px); /* Efecto de desenfoque de fondo */
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0; /* Ocultos por defecto */
+}
+
+/* Mostramos los botones al hacer hover sobre el viewport */
+.carousel-viewport:hover .carousel-nav-btn {
+  opacity: 1;
+}
+
+.carousel-nav-btn:hover {
+  background-color: #60a5fa; /* Color de acento de tu portafolio al hover */
+  color: #000;
+  border-color: #60a5fa;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn.prev {
+  left: 1rem;
+}
+
+.carousel-nav-btn.next {
+  right: 1rem;
+}
+
+/* Indicadores inferiores (Dots) */
+.carousel-indicators {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dot.active {
+  background-color: #60a5fa; /* Color de acento */
+  transform: scale(1.2);
+  width: 25px; /* Efecto de píldora para el activo */
+  border-radius: 5px;
+}
+
+/* Ajustes para Responsive (Móvil) */
+@media (max-width: 768px) {
+  .carousel-viewport {
+    /* Altura reducida para que quepa bien en pantallas verticales */
+    height: 250px; 
+    border-radius: 8px;
+  }
+  
+  /* Hacemos los botones siempre visibles en móvil pero más pequeños 
+     y sin el fondo oscuro si prefieres, para no tapar mucho */
+  .carousel-nav-btn {
+    opacity: 1; 
+    width: 36px;
+    height: 36px;
+    background-color: rgba(17, 24, 39, 0.5);
+  }
+
+  .carousel-nav-btn.prev {
+    left: 0.5rem;
+  }
+
+  .carousel-nav-btn.next {
+    right: 0.5rem;
+  }
+}

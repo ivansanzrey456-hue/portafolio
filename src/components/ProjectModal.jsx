@@ -1,24 +1,25 @@
 import React from 'react';
 import DottedOffsetButton from './DottedOffsetButton';
+import ProjectCarousel from './ProjectCarousel'; // Importamos el carrusel
+
 function ProjectModal({ project, onClose }) {
 
     if (!project) {
         return null;
     }
 
+    // Extraemos solo las URLs de las imágenes de project.gallery
+    const imagesList = project.gallery?.map((img) => img.src) || [];
 
     return (
-
         <div
             className="project-modal"
             onClick={onClose}
         >
-
             <div
                 className="project-modal-content"
                 onClick={(event) => event.stopPropagation()}
             >
-
                 <button
                     className="project-modal-close"
                     onClick={onClose}
@@ -27,99 +28,46 @@ function ProjectModal({ project, onClose }) {
                     ×
                 </button>
 
-
                 <span className="project-category">
                     {project.category}
                 </span>
-
 
                 <h2>
                     {project.title}
                 </h2>
 
-
                 <p className="project-modal-intro">
                     {project.modalDescription}
                 </p>
 
-
-                <div className="project-gallery">
-
-                    {project.gallery.map((image, index) => (
-
-                        <img
-                            key={image.src}
-                            src={image.src}
-                            alt={image.alt}
-                            onContextMenu={(e) => e.preventDefault()}
-                            onDragStart={(e) => e.preventDefault()}
-                            decoding="async"
-                        />
-
-                    ))}
-
-                </div>
-
+                {/* Reemplazo de la galería estática por el Carrusel Interactivo */}
+                <ProjectCarousel images={imagesList} />
 
                 <div className="project-modal-section">
-
-                    <h3>
-                        ¿Qué problema resuelve?
-                    </h3>
-
-                    <p>
-                        {project.problem}
-                    </p>
-
+                    <h3>¿Qué problema resuelve?</h3>
+                    <p>{project.problem}</p>
                 </div>
 
-
                 <div className="project-modal-section">
-
-                    <h3>
-                        Solución
-                    </h3>
-
-                    <p>
-                        {project.solution}
-                    </p>
-
+                    <h3>Solución</h3>
+                    <p>{project.solution}</p>
                 </div>
 
-
                 <div className="project-modal-section">
-
-                    <h3>
-                        Mi participación
-                    </h3>
-
-                    <p>
-                        {project.role}
-                    </p>
-
+                    <h3>Mi participación</h3>
+                    <p>{project.role}</p>
                 </div>
 
-
                 <div className="project-modal-section">
-
-                    <h3>
-                        Funcionalidades
-                    </h3>
-
+                    <h3>Funcionalidades</h3>
                     <ul>
-
                         {project.features.map((feature) => (
-
                             <li key={feature}>
                                 {feature}
                             </li>
-
                         ))}
-
                     </ul>
-
                 </div>
-
 
                 <div className="project-modal-footer">
                     <div className="project-modal-section">
@@ -159,11 +107,8 @@ function ProjectModal({ project, onClose }) {
                 </div>
 
             </div>
-
         </div>
-
     );
-
 }
 
 export default ProjectModal;

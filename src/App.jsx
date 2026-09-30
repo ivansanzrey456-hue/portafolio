@@ -1,3 +1,6 @@
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Workflow from "./components/Workflow";
@@ -8,27 +11,24 @@ import Solutions from "./components/Solutions";
 import Technologies from "./components/Technologies";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound"; // Importamos el 404
 
-import "./styles/global.css"; // Revisa que esta ruta coincida con la ubicación real de tu global.css
-import { useEffect } from 'react';
-import React from 'react';
+import "./styles/global.css";
 
-function App() {
-
+// Componente que agrupa todas las secciones de tu Landing Page
+function MainContent() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // Si el elemento entra al área visible, le agregamos la clase "visible"
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
     }, {
-      threshold: 0.1, // Se activa al mostrar el 10% del elemento
-      rootMargin: "0px 0px -50px 0px" // Margen de activación para asegurar disparador en scroll
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
     });
 
-    // Pequeño timeout para dar tiempo a React de renderizar todos los elementos en el DOM
     const timer = setTimeout(() => {
       const animatedElements = document.querySelectorAll('.animate-on-scroll');
       animatedElements.forEach((el) => observer.observe(el));
@@ -53,6 +53,21 @@ function App() {
       <Contact />
       <Footer />
     </>
+  );
+}
+
+// Componente principal con las rutas
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Ruta principal '/' despliega todas las secciones */}
+        <Route path="/" element={<MainContent />} />
+
+        {/* Cualquier otra ruta no definida '*' carga la página 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
