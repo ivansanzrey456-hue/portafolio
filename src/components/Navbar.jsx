@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // Importamos FaLinkedin
 import React from 'react';
 import DottedOffsetButton from './DottedOffsetButton';
 import {
@@ -65,6 +65,18 @@ function Navbar() {
                     >
                         Contacto
                     </a>
+                    
+                    {/* Enlaces móviles */}
+                    <a
+                        href="https://www.linkedin.com/in/ivansanchezreyes/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="navbar-mobile-link"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        <FaLinkedin /> LinkedIn
+                    </a>
+
                     <a
                         href="https://github.com/ivansanzrey456-hue"
                         target="_blank"
@@ -88,42 +100,43 @@ function Navbar() {
                 </nav>
 
                 <div className="navbar-actions">
-                    <DottedOffsetButton
-                        label="GitHub"
-                        link="https://github.com/ivansanzrey456-hue"
-                        newTab={true}
-                        addIcon={true}
-                        icon={{ 
-                            element: <FaGithub />, // Pasar el icono de react-icons aquí
-                            size: 18 
-                        }}
-                        colors={{
-                            fill: "#181717",
-                            hoverFill: "#000000",
-                            textColor: "#ffffff",
-                            hoverTextColor: "#ffffff"
-                        }}
-                        border={{
-                            borderColor: "#333333",
-                            borderStyle: "solid",
-                            borderWidth: 2
-                        }}
-                        shadow={{
-                            color: "#3a058a" // Color morado/gris característico de GitHub
-                        }}
-                    />
+  
+  {/* Ícono de LinkedIn */}
+  <a
+    href="https://www.linkedin.com/in/ivansanchezreyes/"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="LinkedIn"
+    aria-label="Perfil de LinkedIn"
+    className="navbar-icon-btn text-[#0a66c2]"
+  >
+    <FaLinkedin size={20} />
+  </a>
 
-                   
-                    <div className="navbar-desktop-only">
-                        <DottedOffsetButton
-                            label="Descargar CV"
-                            link="/CV-Sanchez_Reyes_Ivan.pdf"
-                            newTab={true}
-                            addIcon={true}
-                            icon={{ symbol: "↓", size: 16 }}
-                        />
-                    </div>
-                </div>
+  {/* Ícono de GitHub */}
+  <a
+    href="https://github.com/ivansanzrey456-hue"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="GitHub"
+    aria-label="Perfil de GitHub"
+    className="navbar-icon-btn"
+  >
+    <FaGithub size={20} />
+  </a>
+
+  {/* Botón Principal: Descargar CV */}
+  <div className="navbar-desktop-only">
+    <DottedOffsetButton
+      label="Descargar CV"
+      link="/CV-Sanchez_Reyes_Ivan.pdf"
+      newTab={true}
+      addIcon={true}
+      icon={{ symbol: "↓", size: 16 }}
+    />
+  </div>
+
+</div>
 
                 <button
                     type="button"
