@@ -85,32 +85,6 @@ function NotFound() {
               />
             </Link>
 
-            {/* Botón de enlace externo a GitHub */}
-            <DottedOffsetButton
-              label="GitHub"
-              link="https://github.com/ivansanzrey456-hue"
-              newTab={true}
-              addIcon={true}
-              icon={{ 
-                element: <FaGithub />, 
-                size: 18 
-              }}
-              colors={{
-                fill: isDarkMode ? "#1e293b" : "#f1f5f9",
-                hoverFill: isDarkMode ? "#334155" : "#e2e8f0",
-                textColor: isDarkMode ? "#f8fafc" : "#0f172a",
-                hoverTextColor: isDarkMode ? "#ffffff" : "#0f172a"
-              }}
-              border={{
-                borderColor: isDarkMode ? "#475569" : "#cbd5e1",
-                borderStyle: "solid",
-                borderWidth: 2
-              }}
-              shadow={{
-                color: isDarkMode ? "#0f172a" : "#94a3b8"
-              }}
-            />
-
           </div>
 
         </div>
